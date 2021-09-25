@@ -1,8 +1,9 @@
 import './App.scss';
+import { Beranda } from './pages/Beranda';
 
 export const App = () => {
     return (
-        <h1>Hello World</h1>
+        <Beranda/>
     );
 }
 
