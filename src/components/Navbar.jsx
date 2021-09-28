@@ -25,7 +25,7 @@ export const NavigationBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="">BERANDA</Nav.Link>
+                        <Nav.Link onClick={beranda}>BERANDA</Nav.Link>
                         <Nav.Link href="">TENTANG</Nav.Link>
                         <Nav.Link href="">KEGIATAN</Nav.Link>
                         <Nav.Link href="">KONTAK</Nav.Link>
