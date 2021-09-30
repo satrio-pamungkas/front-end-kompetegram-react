@@ -8,13 +8,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useForm, Controller } from "react-hook-form";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
 import { institusi, Programstudi } from "../data/Prodi";
+
+import { Redirect } from "react-router-dom";
 
 export const Daftar = () => {
     const theme = createTheme({
@@ -26,7 +28,8 @@ export const Daftar = () => {
         },
     });
 
-    const [error, setError] = useState('');
+    const [problem, setProblem] = useState(false);
+    const [redirect, setRedirect] = useState(false);
     
     const validationSchema = Yup.object().shape({
         nama: Yup.string()
@@ -40,12 +43,13 @@ export const Daftar = () => {
             .required('Nomor WhatsApp Wajib diisi'),
         nim: Yup.string()
             .required('NIM Wajib diisi'),
-        minat: Yup.string(),
+        minat: Yup.string()
+            .required('Perlu untuk diisi'),
         kodeProdi: Yup.string()
             .required('Program studi wajib diisi'),
         fakultas: Yup.string()
             .required('Fakultas wajib diisi'),
-        pernahNgoding: Yup.string()
+        pernah_ngoding: Yup.string()
             .required('Pilihan wajib diisi')
     });
 
@@ -53,16 +57,30 @@ export const Daftar = () => {
         register,
         control,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
       } = useForm({
         resolver: yupResolver(validationSchema)
     });
 
     const onSubmit = data => {
-        fetch('https://kompetegram.parentgenmaster.masuk.id/pengguna', {
+        fetch('https://api.kompetegram.com/pengguna', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: { 'Content-Type': 'application/json' },
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+            return response;
+        })
+        .then((response) => {
+            setRedirect(true);
+            console.log('Ok');
+        })
+        .catch((err) => {
+            setProblem(true);
+            console.log('Error');
         });
 
         console.log(JSON.stringify(data, null, 2));
@@ -199,7 +217,8 @@ export const Daftar = () => {
                                     ))}
                                     </TextField>
                                     <TextField
-                                        label="Minat dalam pemrograman (opsional)"
+                                        helperText="Silakan isi (-) jika belum memiliki"
+                                        label="Minat dalam bidang pemrograman"
                                         variant="filled"
                                         color="warning"
                                         margin="normal"
@@ -213,9 +232,9 @@ export const Daftar = () => {
                                         rules={{ required: true }}
                                         control={control}
                                         defaultValue=""
-                                        name="pernahNgoding"
+                                        name="pernah_ngoding"
                                         render={({ field }) => {
-                                            const { name, onBlur, onChange, value } = field;
+                                            const { onBlur, onChange, value } = field;
                                             return (
                                                 <RadioGroup
                                                     row
@@ -251,6 +270,8 @@ export const Daftar = () => {
                                         DAFTAR
                                     </Button>
                                 </form>
+                                {problem && <h1>Gagal mengirim</h1>}
+                                {redirect && <Redirect to="/bergabung"/> }
                                 </Col>
                             </Row>
                         </Card.Body>

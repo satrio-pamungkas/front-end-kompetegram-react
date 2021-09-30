@@ -3,16 +3,15 @@ import { useState, useEffect } from "react";
 export const Programstudi = () => {
 
     const [data, setData] = useState([]);
-    const [error, setError] = useState('');
 
     useEffect(() => {
-        fetch('https://kompetegram.parentgenmaster.masuk.id/prodi')
+        fetch('https://api.kompetegram.com/prodi')
             .then((response) => response.json())
             .then((data) => {
                 setData(data.data.prodi);
             })
             .catch((e) => {
-                setError('fetch failed')
+                console.log('Error');
             });
     }, []);
 
