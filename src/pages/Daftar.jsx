@@ -14,7 +14,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-import { institusi, Programstudi } from "../data/Prodi";
+import { ProgramStudi } from "../api/Prodi";
+import { Fakultas } from "../api/Fakultas";
 
 import { Redirect } from "react-router-dom";
 
@@ -30,6 +31,7 @@ export const Daftar = () => {
 
     const [problem, setProblem] = useState(false);
     const [redirect, setRedirect] = useState(false);
+    const [faculty, setFaculty] = useState('');
     
     const validationSchema = Yup.object().shape({
         nama: Yup.string()
@@ -49,7 +51,7 @@ export const Daftar = () => {
             .required('Program studi wajib diisi'),
         fakultas: Yup.string()
             .required('Fakultas wajib diisi'),
-        pernah_ngoding: Yup.string()
+        pernahNgoding: Yup.string()
             .required('Pilihan wajib diisi')
     });
 
@@ -87,13 +89,10 @@ export const Daftar = () => {
     };
 
     function handleFakultas(e) {
-        console.log("Selected fakultas", e.target.value);
-        // const fakultasSelect = e.target.value;
-        // const prodiSelect = fakultasSelect !== "" ? institusi[fakultasSelect] : "";
-        // setSelectedCountry(fakultasSelect);
-        // setCities(prodiSelect);
-        // setSelectedCity("");
+        const fakultasSelect = e.target.value;
+        setFaculty(fakultasSelect);
     }
+
 
     const onError = (errors, e) => console.log(errors, e);
 
@@ -189,9 +188,9 @@ export const Daftar = () => {
                                         }}
                                         defaultValue=''
                                     >
-                                    {institusi.map((option) => (
-                                        <MenuItem key={option.fakultas} value={option.fakultas}>
-                                        {option.fakultas}
+                                    {Fakultas().map((item) => (
+                                        <MenuItem key={item.nama} value={item.nama}>
+                                        {item.nama}
                                         </MenuItem>
                                     ))}
                                     </TextField>
@@ -207,12 +206,12 @@ export const Daftar = () => {
                                         margin="normal"
                                         fullWidth 
                                         {...register('kodeProdi')}
-                                        defaultValue=''
+                                        defaultValue=""
                                         error={errors.kodeProdi ? true : false}
                                     >
-                                    {Programstudi().map((option) => (
-                                        <MenuItem key={option.kode} value={option.kode}>
-                                        {option.nama}
+                                    {ProgramStudi(faculty)?.map((item) => (
+                                        <MenuItem key={item.label} value={item.value}>
+                                        {item.value}
                                         </MenuItem>
                                     ))}
                                     </TextField>
@@ -232,7 +231,7 @@ export const Daftar = () => {
                                         rules={{ required: true }}
                                         control={control}
                                         defaultValue=""
-                                        name="pernah_ngoding"
+                                        name="pernahNgoding"
                                         render={({ field }) => {
                                             const { onBlur, onChange, value } = field;
                                             return (
