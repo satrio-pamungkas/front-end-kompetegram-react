@@ -1,5 +1,5 @@
 export const Success = () => {
     return (
-        <h1>Berhasil, silakan join</h1>
+        <h1 style={{ color: 'white' }}>Berhasil, silakan join</h1>
     );
 }

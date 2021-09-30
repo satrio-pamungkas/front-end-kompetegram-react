@@ -1,33 +1,21 @@
 import { NavigationBar } from "../components/Navbar";
-
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { createTheme, CssBaseline, ThemeProvider, MenuItem, Radio, FormControlLabel, RadioGroup, FormLabel, Typography } from '@mui/material';
-
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
-import { useForm, Controller } from "react-hook-form";
-
-import { useState } from "react";
+import { Theme } from "../styles/Theme";
+import { ProgramStudi } from "../api/Prodi";
+import { Fakultas } from "../api/Fakultas";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import { CssBaseline, ThemeProvider, MenuItem, Radio, FormControlLabel, 
+    RadioGroup, FormLabel, Typography, TextField, Button } from '@mui/material';
 
-import { ProgramStudi } from "../api/Prodi";
-import { Fakultas } from "../api/Fakultas";
-
+import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { Redirect } from "react-router-dom";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 
 export const Daftar = () => {
-    const theme = createTheme({
-        palette: {
-            mode: 'dark',
-            warning: {
-                main: '#FF7315'
-            }
-        },
-    });
 
     const [problem, setProblem] = useState(false);
     const [redirect, setRedirect] = useState(false);
@@ -93,13 +81,12 @@ export const Daftar = () => {
         setFaculty(fakultasSelect);
     }
 
-
     const onError = (errors, e) => console.log(errors, e);
 
     return (
         <>
             <NavigationBar/>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={Theme}>
                 <CssBaseline/>
                 <Row style={{ marginRight: '0px'}}>
                     <Col sm={2} md={3}></Col>
@@ -210,7 +197,7 @@ export const Daftar = () => {
                                         error={errors.kodeProdi ? true : false}
                                     >
                                     {ProgramStudi(faculty)?.map((item) => (
-                                        <MenuItem key={item.label} value={item.value}>
+                                        <MenuItem key={item.label} value={item.label}>
                                         {item.value}
                                         </MenuItem>
                                     ))}
