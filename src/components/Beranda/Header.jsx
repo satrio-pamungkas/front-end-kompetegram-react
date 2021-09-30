@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Countdown from "react-countdown";
 
 export const Header = () => {
-    let registrationDate = new Date("October 1, 2021 14:00:00")
+    let registrationDate = new Date("October 10, 2021 23:59:59")
 
     return (
         <Row className="header">
@@ -22,7 +22,7 @@ export const Header = () => {
                 </Row>
                 <Row className="countdown-container">
                     <h3 className="countdown-info">
-                        Hitung Mundur menuju Registrasi
+                        Hitung Mundur menuju Penutupan Registrasi
                     </h3>
                     <h2 className="countdown-header">
                         <Countdown date={registrationDate} />

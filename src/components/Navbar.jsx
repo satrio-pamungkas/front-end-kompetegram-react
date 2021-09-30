@@ -19,19 +19,14 @@ export const NavigationBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container className="navbar-beranda">
-                <Navbar.Brand onClick={beranda}>
+                <Nav.Link onClick={beranda}>
                     <Image className="logo" src={Logo} fluid/>
-                </Navbar.Brand>
+                </Nav.Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link onClick={beranda}>BERANDA</Nav.Link>
-                        <Nav.Link href="">TENTANG</Nav.Link>
-                        <Nav.Link href="">KEGIATAN</Nav.Link>
-                        <Nav.Link href="">KONTAK</Nav.Link>
                     </Nav>
                     <Nav className="masuk-daftar">
-                        <Nav.Link href="">MASUK</Nav.Link>
                         <Nav.Link className="button-daftar" onClick={daftar}>DAFTAR</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
