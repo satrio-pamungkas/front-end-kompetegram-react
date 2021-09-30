@@ -18,7 +18,7 @@ export const Header = () => {
                     tidaklah terhitung jumlahnya saat ini</h2>
                 </Row>
                 <Row className="button-container">
-                    <Nav.Link className="button">DAFTAR</Nav.Link>
+                    <Nav.Link className="button">DAFTAR ANGGOTA</Nav.Link>
                 </Row>
                 <Row className="countdown-container">
                     <h3 className="countdown-info">

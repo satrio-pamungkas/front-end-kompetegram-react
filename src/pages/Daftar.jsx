@@ -2,12 +2,15 @@ import { NavigationBar } from "../components/Navbar";
 import { Theme } from "../styles/Theme";
 import { ProgramStudi } from "../api/Prodi";
 import { Fakultas } from "../api/Fakultas";
+import Photo from "../assets/img/form-daftar.svg";
+import Modal from "../components/Daftar/Modal";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import SendIcon from '@mui/icons-material/Send';
 import { CssBaseline, ThemeProvider, MenuItem, Radio, FormControlLabel, 
-    RadioGroup, FormLabel, Typography, TextField, Button } from '@mui/material';
+    RadioGroup, FormLabel, Typography, TextField, Button, Alert } from '@mui/material';
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
@@ -88,19 +91,20 @@ export const Daftar = () => {
             <NavigationBar/>
             <ThemeProvider theme={Theme}>
                 <CssBaseline/>
-                <Row style={{ marginRight: '0px'}}>
-                    <Col sm={2} md={3}></Col>
-                    <Col xs={12} sm={8} md={6}>
-                    <Card style={{ backgroundColor: '#121212' }}>
+                <Row className="page">
+                    <Col sm={2}></Col>
+                    <Col xs={12} sm={8}>
+                    <Card className="card">
                         <Card.Body>
-                            <Card.Title>Pendaftaran Anggota KOMPETEGRAM</Card.Title>
                             <Row>
-                                <Col>
-                                    <Card.Text>
-                                        Silakan isi formulir berikut
-                                    </Card.Text>
+                                <Col md={6} className="col-kiri">
+                                    <h1 className="title-form">Pendaftaran Anggota KOMPETEGRAM</h1>
+                                    <h2 className="subtitle-form">Batch 2 - Tahun 2021</h2>
+                                    <img className="img" src={Photo} alt=''/>
+                                    <h4 className="desc-form">Sebelum mendaftar keanggotaan, pastikan telah memenuhi syarat dan ketentuan yang berlaku berikut</h4>
+                                    <Modal/>
                                 </Col>
-                                <Col xs={12}>
+                                <Col xs={12} md={6}>
                                 <form onSubmit={handleSubmit(onSubmit, onError)}>
                                     <TextField
                                         label="Nama Lengkap"
@@ -131,7 +135,7 @@ export const Daftar = () => {
                                         <MenuItem key="Perempuan" value="Perempuan">Perempuan</MenuItem>
                                     </TextField>
                                     <TextField
-                                        label="Alamat Surel"
+                                        label="Alamat Surel (Email)"
                                         variant="filled"
                                         color="warning"
                                         margin="normal"
@@ -151,7 +155,7 @@ export const Daftar = () => {
                                         error={errors.noWhatsapp ? true : false}
                                     />
                                     <TextField
-                                        label="Nomor Induk Mahasiswa"
+                                        label="Nomor Induk Mahasiswa (NIM)"
                                         variant="filled"
                                         color="warning"
                                         margin="normal"
@@ -163,7 +167,7 @@ export const Daftar = () => {
                                     <TextField
                                         select
                                         color="warning"
-                                        label="Fakultas"
+                                        label="Fakultas atau Kampus Daerah"
                                         variant="filled"
                                         size="small"
                                         margin="normal"
@@ -248,22 +252,26 @@ export const Daftar = () => {
                                     <Typography variant="inherit" color="textSecondary">
                                         {errors.pernahNgoding?.message}
                                     </Typography>
+                                    {problem && <h1>Gagal mengirim</h1>}
                                     <Button
+                                        className="button-submit"
                                         variant="contained"
                                         color="warning"
                                         type="submit"
+                                        fullWidth
+                                        startIcon={<SendIcon />}
+                                        style={{ color: '#fff', fontSize: '16px', fontWeight: '500'}}
                                     >
-                                        DAFTAR
+                                        DAFTAR ANGGOTA
                                     </Button>
                                 </form>
-                                {problem && <h1>Gagal mengirim</h1>}
                                 {redirect && <Redirect to="/bergabung"/> }
                                 </Col>
                             </Row>
                         </Card.Body>
                     </Card>
                     </Col>
-                    <Col sm={2} md={3} ></Col>
+                    <Col sm={2} ></Col>
                 </Row>
             </ThemeProvider>
         </>

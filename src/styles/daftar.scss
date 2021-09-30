@@ -4,3 +4,55 @@
 // ----------------------------
 // Komponen Box - DAFTAR
 // ----------------------------
+
+.page {
+    margin-right: 0px;
+}
+
+.card {
+    margin-top: 20px;
+    background-color: #242424;
+
+    .col-kiri {
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        justify-content: center;
+
+        .title-form {
+            font-family: 'Raleway', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+        }
+
+        .subtitle-form {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .desc-form {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 25px;
+        }
+
+        .img {
+            width: 70%;
+            margin-left: 15%;
+        }
+    }
+}
+
+// ----------------------------
+// Komponen Box - MODAL
+// ----------------------------
