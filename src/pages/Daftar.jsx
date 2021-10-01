@@ -281,7 +281,7 @@ export const Daftar = () => {
 
                                     {problem && 
                                         <Alert className="fail-alert" variant="filled" severity="error">
-                                            Gagal mendaftar, silakan ulangi atau daftar melalui link alternatif <Link href="https://bit.ly/Daftar-KTG-2021">berikut</Link>
+                                            Gagal mendaftar, silakan ulangi atau daftar melalui link alternatif <Link href="https://bit.ly/Daftar-KTG-2021" target="_blank" rel="noopener noreferrer">berikut</Link>
                                         </Alert>}
                                     <Button
                                         className="button-submit"

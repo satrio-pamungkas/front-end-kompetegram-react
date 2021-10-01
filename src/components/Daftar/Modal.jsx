@@ -33,7 +33,7 @@ export default function BasicModal() {
                     color="warning"
                     >Lihat Syarat dan Ketentuan
                 </Button>
-                <Link underline="none" href="https://bit.ly/Daftar-KTG-2021">
+                <Link underline="none" href="https://bit.ly/Daftar-KTG-2021" target="_blank" rel="noopener noreferrer">
                     <Button 
                         className="button-modal"
                         variant="outlined"

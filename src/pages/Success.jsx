@@ -30,7 +30,7 @@ export const Success = () => {
                                         <img className="success-photo" src={Photo} alt=""/>
                                     </div>
                                     <h4 className="desc-form">Selanjutnya, silakan bergabung pada grup WhatsApp berikut !</h4>
-                                    <Link underline="none" href="https://chat.whatsapp.com/KdZfAOoc2kBAQwLU0ZIRsr">
+                                    <Link underline="none" href="https://chat.whatsapp.com/KdZfAOoc2kBAQwLU0ZIRsr" target="_blank" rel="noopener noreferrer">
                                         <Button
                                             className="button-join"
                                             variant="contained"
@@ -43,7 +43,7 @@ export const Success = () => {
                                     </Link>
                                     <h4 className="desc-form">Terakhir, bersifat <b>OPSIONAL</b>. Untuk memeriahkan dan menambah semangat anggota baru dalam kegiatan registrasi, kami telah
                                         menyediakan TWIBBON yang dapat diunggah di akun Instagram masing-masing dan tag @kompetegram</h4>
-                                    <Link underline="none" href="https://twb.nz/ktg-batch-2">
+                                    <Link underline="none" href="https://twb.nz/ktg-batch-2" target="_blank" rel="noopener noreferrer">
                                         <Button
                                             className="button-twibbon"
                                             variant="contained"
