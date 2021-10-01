@@ -2,21 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 // ----------------------------
-// Komponen Box - DAFTAR
+// Komponen Box - Card
 // ----------------------------
 
 $open-sans: 'Open Sans', sans-serif;
 $raleway: 'Raleway', sans-serif;
 
-.page {
-    margin-right: 0px;
-}
-
-.card {
+.card-success {
     margin-top: 20px;
     background-color: #242424;
 
-    .col-kiri {
+    .col-tengah {
         padding-top: 20px;
         padding-left: 30px;
         padding-right: 30px;
@@ -36,7 +32,7 @@ $raleway: 'Raleway', sans-serif;
             font-weight: 400;
             color: white;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
         .desc-form {
@@ -45,54 +41,67 @@ $raleway: 'Raleway', sans-serif;
             font-weight: 300;
             color: white;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 30px;
             margin-bottom: 25px;
         }
 
-        .img {
-            width: 70%;
-            margin-left: 15%;
+        .success-photo {
+            width: 150px;
         }
 
-        .button-modal {
-            margin-top: 10px;
-        }
-    }
-
-    .col-kanan {
-
-        .fail-alert {
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .button-submit {
-            color: #fff;
-            font-size: 15px; 
+        .button-join {
+            background-color: #df6311;
             font-family: $open-sans;
-            font-weight: 500;
-            margin-top: 20px; 
-            margin-bottom: 20px;
-            height: 40px;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            border-radius: 10px;
         }
 
-        .error-message {
-            font-family: $open-sans;
-            font-size: 12px;
-            font-weight: 400;
+        .button-join:hover {
+            background-color: #bb5410;
         }
 
-        .pertanyaan-ngoding {
+        .button-twibbon {
+            background-color: #df6311;
             font-family: $open-sans;
-            font-size: 14px;
-            font-weight: 500;
-            margin-top: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            border-radius: 10px;
+        }
 
-            .desc {
-                font-size: 12px;
-                font-weight: 300;
-            }
+        .button-twibbon:hover {
+            background-color: #bb5410;
         }
     }
 }
 
+// ----------------------------
+// Responsive Medoa
+// ----------------------------
+
+
+@media only screen and (max-width: 576px) {
+    .card-success {
+
+        .col-tengah {
+
+            .title-form {
+                font-size: 28px;
+            }
+
+            .subtitle-form {
+                font-size: 16px;
+            }
+
+            .button-join {
+                font-size: 13px;
+            }
+
+            .button-twibbon {
+                font-size: 13px;
+            }
+        }
+    }
+}

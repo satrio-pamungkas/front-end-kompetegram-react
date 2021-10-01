@@ -33,7 +33,7 @@ export default function BasicModal() {
                     color="warning"
                     >Lihat Syarat dan Ketentuan
                 </Button>
-                <Link href="https://google.com">
+                <Link underline="none" href="https://bit.ly/Daftar-KTG-2021">
                     <Button 
                         className="button-modal"
                         variant="outlined"
@@ -54,7 +54,7 @@ export default function BasicModal() {
                 </Typography>
                 <br/>
                 <Alert variant="outlined" color="warning">Memiliki niat dan semangat</Alert>
-                <Alert style={{ marginTop: '20px'}} variant="outlined" color="warning">Mahasiswa aktif UPI</Alert>
+                <Alert style={{ marginTop: '20px'}} variant="outlined" color="warning">Mahasiswa aktif UPI dari berbagai program studi dan fakultas atau kampus daerah</Alert>
             </Box>
             </Modal>
         </div>

@@ -94,7 +94,7 @@ export const Daftar = () => {
                 <CssBaseline/>
                 <Row className="page">
                     <Col sm={2}></Col>
-                    <Col xs={12} sm={8}>
+                    <Col style={{ paddingRight: '0px' }} xs={12} sm={8}>
                     <Card className="card">
                         <Card.Body>
                             <Row>
@@ -281,7 +281,7 @@ export const Daftar = () => {
 
                                     {problem && 
                                         <Alert className="fail-alert" variant="filled" severity="error">
-                                            Gagal mendaftar, silakan ulangi atau daftar melalui link alternatif <Link href="#">berikut</Link>
+                                            Gagal mendaftar, silakan ulangi atau daftar melalui link alternatif <Link href="https://bit.ly/Daftar-KTG-2021">berikut</Link>
                                         </Alert>}
                                     <Button
                                         className="button-submit"

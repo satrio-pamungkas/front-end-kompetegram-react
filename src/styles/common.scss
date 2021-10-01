@@ -5,8 +5,10 @@
 // Komponen Navbar - COMMON
 // --------------------------
 
+$open-sans: 'Open Sans', sans-serif;
+
 .navbar-beranda {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $open-sans;
     font-size: 14px;
     
     .nav-link {
