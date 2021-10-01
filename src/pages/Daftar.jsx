@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import SendIcon from '@mui/icons-material/Send';
 import { CssBaseline, ThemeProvider, MenuItem, Radio, FormControlLabel, 
-    RadioGroup, FormLabel, Typography, TextField, Button, Alert } from '@mui/material';
+    RadioGroup, FormLabel, Typography, TextField, Button, Alert, Link } from '@mui/material';
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
@@ -35,9 +35,10 @@ export const Daftar = () => {
         noWhatsapp: Yup.string()
             .required('Nomor WhatsApp Wajib diisi'),
         nim: Yup.string()
-            .required('NIM Wajib diisi'),
-        minat: Yup.string()
-            .required('Perlu untuk diisi'),
+            .required('NIM Wajib diisi')
+            .min(7)
+            .max(9),
+        minat: Yup.string(),
         kodeProdi: Yup.string()
             .required('Program studi wajib diisi'),
         fakultas: Yup.string()
@@ -104,8 +105,8 @@ export const Daftar = () => {
                                     <h4 className="desc-form">Sebelum mendaftar keanggotaan, pastikan telah memenuhi syarat dan ketentuan yang berlaku berikut</h4>
                                     <Modal/>
                                 </Col>
-                                <Col xs={12} md={6}>
-                                <form onSubmit={handleSubmit(onSubmit, onError)}>
+                                <Col xs={12} md={6} className="col-kanan">
+                                <form className="form" onSubmit={handleSubmit(onSubmit, onError)}>
                                     <TextField
                                         label="Nama Lengkap"
                                         variant="filled"
@@ -116,9 +117,10 @@ export const Daftar = () => {
                                         {...register('nama')}
                                         error={errors.nama ? true : false}
                                     />
-                                    <Typography variant="inherit" color="textSecondary">
+                                    <Typography className="error-message" variant="inherit" color="error">
                                         {errors.nama?.message}
                                     </Typography>
+
                                     <TextField
                                         select
                                         color="warning"
@@ -134,6 +136,10 @@ export const Daftar = () => {
                                         <MenuItem key="Laki-Laki" value="Laki-Laki">Laki-Laki</MenuItem>
                                         <MenuItem key="Perempuan" value="Perempuan">Perempuan</MenuItem>
                                     </TextField>
+                                    <Typography className="error-message" variant="inherit" color="error">
+                                        {errors.jenisKelamin?.message}
+                                    </Typography>
+
                                     <TextField
                                         label="Alamat Surel (Email)"
                                         variant="filled"
@@ -144,6 +150,10 @@ export const Daftar = () => {
                                         {...register('email')}
                                         error={errors.email ? true : false}
                                     />
+                                    <Typography className="error-message" variant="inherit" color="error">
+                                        {errors.email?.message}
+                                    </Typography>
+
                                     <TextField
                                         label="Nomor Telepon atau WhatsApp"
                                         variant="filled"
@@ -154,6 +164,10 @@ export const Daftar = () => {
                                         {...register('noWhatsapp')}
                                         error={errors.noWhatsapp ? true : false}
                                     />
+                                    <Typography className="error-message" variant="inherit" color="error">
+                                        {errors.noWhatsapp?.message}
+                                    </Typography>
+
                                     <TextField
                                         label="Nomor Induk Mahasiswa (NIM)"
                                         variant="filled"
@@ -164,6 +178,10 @@ export const Daftar = () => {
                                         {...register('nim')}
                                         error={errors.nim ? true : false}
                                     />
+                                    <Typography className="error-message" variant="inherit" color="error">
+                                        {errors.nim?.message}
+                                    </Typography>
+
                                     <TextField
                                         select
                                         color="warning"
@@ -185,11 +203,10 @@ export const Daftar = () => {
                                         </MenuItem>
                                     ))}
                                     </TextField>
-                                    <Typography variant="inherit" color="textSecondary">
-                                        {errors.fakultas?.message}
-                                    </Typography>
+
                                     <TextField
                                         select
+                                        helperText="Silakan pilih fakultas atau kampus daerah terlebih dahulu"
                                         color="warning"
                                         label="Program Studi"
                                         variant="filled"
@@ -206,6 +223,10 @@ export const Daftar = () => {
                                         </MenuItem>
                                     ))}
                                     </TextField>
+                                    <Typography className="error-message" variant="inherit" color="error">
+                                        {errors.kodeProdi?.message}
+                                    </Typography>
+
                                     <TextField
                                         helperText="Silakan isi (-) jika belum memiliki"
                                         label="Minat dalam bidang pemrograman"
@@ -217,7 +238,12 @@ export const Daftar = () => {
                                         {...register('minat')}
                                         error={errors.minat ? true : false}
                                     />
-                                    <FormLabel component="legend">Apakah anda pernah belajar atau berkutik dalam pemrograman sebelumnya ?</FormLabel>
+                                    <Typography className="error-message" color="error">
+                                        {errors.minat?.message}
+                                    </Typography>
+
+                                    <FormLabel className="pertanyaan-ngoding" component="legend">Apakah anda pernah belajar atau berkutik dalam pemrograman sebelumnya ? 
+                                        <i className="desc"> (Tidak perlu khawatir terhadap pertanyaan ini)</i></FormLabel>
                                     <Controller
                                         rules={{ required: true }}
                                         control={control}
@@ -249,10 +275,14 @@ export const Daftar = () => {
                                             );
                                         }}
                                     />
-                                    <Typography variant="inherit" color="textSecondary">
+                                    <Typography className="error-message" variant="inherit" color="error">
                                         {errors.pernahNgoding?.message}
                                     </Typography>
-                                    {problem && <h1>Gagal mengirim</h1>}
+
+                                    {problem && 
+                                        <Alert className="fail-alert" variant="filled" severity="error">
+                                            Gagal mendaftar, silakan ulangi atau daftar melalui link alternatif <Link href="#">berikut</Link>
+                                        </Alert>}
                                     <Button
                                         className="button-submit"
                                         variant="contained"
@@ -260,7 +290,6 @@ export const Daftar = () => {
                                         type="submit"
                                         fullWidth
                                         startIcon={<SendIcon />}
-                                        style={{ color: '#fff', fontSize: '16px', fontWeight: '500'}}
                                     >
                                         DAFTAR ANGGOTA
                                     </Button>

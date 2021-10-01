@@ -5,6 +5,9 @@
 // Komponen Box - DAFTAR
 // ----------------------------
 
+$open-sans: 'Open Sans', sans-serif;
+$raleway: 'Raleway', sans-serif;
+
 .page {
     margin-right: 0px;
 }
@@ -20,7 +23,7 @@
         justify-content: center;
 
         .title-form {
-            font-family: 'Raleway', sans-serif;
+            font-family: $raleway;
             font-size: 32px;
             font-weight: 700;
             color: white;
@@ -28,7 +31,7 @@
         }
 
         .subtitle-form {
-            font-family: 'Open Sans', sans-serif;
+            font-family: $open-sans;
             font-size: 18px;
             font-weight: 400;
             color: white;
@@ -37,7 +40,7 @@
         }
 
         .desc-form {
-            font-family: 'Open Sans', sans-serif;
+            font-family: $open-sans;
             font-size: 14px;
             font-weight: 300;
             color: white;
@@ -49,6 +52,46 @@
         .img {
             width: 70%;
             margin-left: 15%;
+        }
+
+        .button-modal {
+            margin-top: 10px;
+        }
+    }
+
+    .col-kanan {
+
+        .fail-alert {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .button-submit {
+            color: #fff;
+            font-size: 15px; 
+            font-family: $open-sans;
+            font-weight: 500;
+            margin-top: 20px; 
+            margin-bottom: 20px;
+            height: 40px;
+        }
+
+        .error-message {
+            font-family: $open-sans;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .pertanyaan-ngoding {
+            font-family: $open-sans;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 20px;
+
+            .desc {
+                font-size: 12px;
+                font-weight: 300;
+            }
         }
     }
 }
