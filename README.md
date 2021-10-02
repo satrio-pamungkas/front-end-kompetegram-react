@@ -5,10 +5,10 @@
 ![Stars](https://img.shields.io/packagist/stars/satrio-pamungkas/front-end-kompetegram-react?color=blue)
 ![Forks](https://img.shields.io/github/forks/satrio-pamungkas/front-end-kompetegram-react?style=flat-square)
 
-## Penjelasan
+## Penjelasan :speech_balloon: 
 Repositori ini berisi source code dari front-end website KOMPETEGRAM pada fase pertama atau tahap pertamanya. Dalam fase pengembangan pertama ini website dapat digunakan untuk melakukan pendaftaran keanggotaan. Sifat dari front-end website adalah open source (sumber terbuka)
 
-## Tools
+## Tools :mag_right:
 Pengembangan website dilakukan secara terpisah melalui sisi klien (front-end) dan sisi server (back-end). Adapun tools serta framework yang kita gunakan antara lain :
 - ReactJS (Front-End Framework)
 - SASS/SCSS 
@@ -16,11 +16,11 @@ Pengembangan website dilakukan secara terpisah melalui sisi klien (front-end) da
 - Material UI
 - HapiJS (Back-End Framework)
 
-## Halaman Aktif
+## Halaman Aktif :mag_right:
 Silakan kunjungi link berikut :
 https://kompetegram.com
 
-## Cara menjalankan source code ini 
+## Cara menjalankan source code ini :mag_right:
 ``` bash
 # install dependencies
 $ npm install
@@ -29,6 +29,6 @@ $ npm install
 $ npm start
 ```
 
-## Kontributor
+## Kontributor :mag_right:
 - Front-End [(satrio-pamungkas)](https://github.com/satrio-pamungkas)
 - Back-End API [(huda16)](https://github.com/huda16)
