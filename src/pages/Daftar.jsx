@@ -14,7 +14,6 @@ import { CssBaseline, ThemeProvider, MenuItem, Radio, FormControlLabel,
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Redirect } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
@@ -38,7 +37,8 @@ export const Daftar = () => {
             .required('NIM Wajib diisi')
             .min(7)
             .max(9),
-        minat: Yup.string(),
+        minat: Yup.string()
+            .required(),
         kodeProdi: Yup.string()
             .required('Program studi wajib diisi'),
         fakultas: Yup.string()
@@ -70,7 +70,7 @@ export const Daftar = () => {
         })
         .then((response) => {
             setRedirect(true);
-            console.log('Ok');
+            sessionStorage.setItem('Submitted','true');
         })
         .catch((err) => {
             setProblem(true);
@@ -294,7 +294,7 @@ export const Daftar = () => {
                                         DAFTAR ANGGOTA
                                     </Button>
                                 </form>
-                                {redirect && <Redirect to="/bergabung"/> }
+                                {redirect && (window.location.pathname = "/bergabung") }
                                 </Col>
                             </Row>
                         </Card.Body>
