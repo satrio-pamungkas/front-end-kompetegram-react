@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Countdown from "react-countdown";
 
 export const Header = () => {
-    let registrationDate = new Date("October 10, 2021 23:59:59")
+    let registrationDate = new Date("October 13, 2021 23:59:59")
 
     return (
         <Row className="header">
