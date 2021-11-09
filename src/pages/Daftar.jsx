@@ -91,7 +91,7 @@ export const Daftar = () => {
 
     const onError = (errors, e) => console.log(errors, e);
 
-    if ((day > 13) && (month >= 9)) {
+    if ((day > 13) || (month >= 9)) {
 
         return (
             <>
