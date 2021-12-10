@@ -8,7 +8,7 @@ export default function ProtectedRoute ({ component: Component, ...restOfProps }
         <Route
             {...restOfProps}
             render={(props) => 
-                isSubmitted ? <Component {...props}/> : <Redirect to="/daftar" />
+                isSubmitted ? <Component {...props}/> : <Redirect to="/webinar" />
             }
         />
     );
