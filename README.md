@@ -15,6 +15,7 @@ Pengembangan website dilakukan secara terpisah melalui sisi klien (front-end) da
 - Bootstrap
 - Material UI
 - HapiJS (Back-End Framework)
+- ASP.NET (Back-End Framework)
 
 ## Halaman Aktif :mag_right:
 Silakan kunjungi link berikut :
@@ -31,4 +32,5 @@ $ npm start
 
 ## Kontributor :mag_right:
 - Front-End [(satrio-pamungkas)](https://github.com/satrio-pamungkas)
-- Back-End API [(huda16)](https://github.com/huda16)
+- Back-End API (Hapi) [(huda16)](https://github.com/huda16)
+- Back-End API (ASP.NET) [(satrio-pamungkas)](https://github.com/satrio-pamungkas)

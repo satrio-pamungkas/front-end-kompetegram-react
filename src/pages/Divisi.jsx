@@ -109,7 +109,6 @@ export const Divisi = () => {
                                         >
                                             LIHAT HASIL
                                         </Button>
-
                                     </form>
                                 </Row>
 
